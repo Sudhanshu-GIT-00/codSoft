@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing page</title>
+  <link rel="stylesheet" href="landind_style.css" />
+</head>
+
+<body>
+  
+  <nav class="nav_bar">
+    <img class="img_sign" src="img/signature.png" class="logo">
+
+    <div class="nav_title">
+
+      <div class="nav_link">
+        <ul id="sidemenu">
+          <li><a href="https://ranjan119.netlify.app/">Projects</a></li>
+           <i class="fas fa-times" onclick="closemenu()"></i> 
+        </ul>
+      </div>
+    </div>
+
+  </nav>
+
+  <section class="black_box">
+   <h3 class="text_style">Submit your CV and Resume and get a job opportunity<span></span></h3>
+  </section>
+  <!-- <div class="input_box"> 
+      <h5>Upload Your Resume</h5>
+      <input id="input_id" type="file" accept="image/*">
+      <img src="" alt="">
+    </div> -->
+    <div class="container">
+      <div class="button-wrap">
+        <label class="button" for="upload">Upload Your resume here</label>
+        <input id="upload" type="file">
+      </div>
+    </div>
+  <section class="work">
+    <div class="grid_item">
+      <div class="card">
+        <div class="image_container">
+          <img src="img/Screenshot 2023-10-06 151058.png" alt="web development" />
+        </div>
+        <div class="card_content">
+          <h3> <a href="https://ranjan119.netlify.app/" target="_blank">Web Development</a></h3>
+          <p>
+            I love programing and web Development. To Become a successful expert in the field of web development and
+            network Associate by gaining my technical knowledge and different soft skills to ensure personal and
+            professional growth and in the end to contribute to the prosperity of the organization.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="grid_item">
+      <div class="card">
+        <div class="image_container">
+          <img src="img/ai_img.jpg" alt="app development" style="width: 320px;" />
+        </div>
+        <div class="card_content">
+          <h3><a href="https://ranjan119.netlify.app/" target="_blank">AI/ML</a></h3>
+          <p>I use the python language for creating ALEXA voice recognition in 2nd year i complete this project ,
+            and its to much fun for use python language. </p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="grid_item">
+
+      <div class="card">
+        <div class="image_container">
+          <img src="img/Invisible.jpg" alt="web development" style="width: 320px;" />
+        </div>
+        <div class="card_content">
+          <h3><a href="https://ranjan119.netlify.app/" target="_blank">Invisible</a></h3>
+          <p>I use the python language for creating hide some any object which is color is blue it will hide the color
+            of blue
+            in 2nd year i complete this project ,and its to much fun for use python language. </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="bottom_section">
+    <div class="contact">
+      <h2 class="text_style">Contact Me</h2>
+      <p>
+        <b>Address :-Bihar,Buxar,Shonipatti ,Neharunagar Road,Near Krishna Chinema ,Ward-No:- 21 </b>
+      </p>
+      <p>7979959747</p>
+      <p>rsudhanshu119@gmail.com</p>
+    </div>
+    <div class="about">
+      <h2 class="text_style">About Me</h2>
+
+      <p>
+        To Become a successful expert
+        in the field of web development</p>
+      <p>Network Associate by
+        gaining my technical
+        knowledge and different soft
+        skills </p>
+      <p>To ensure personal and
+        professional growth and in the
+        end to contribute to the
+        prosperity of the organization.
+      </p>
+
+    </div>
+  </section>
+  <footer>Copyright © Sudhanshu Ranjan. My own project</footer>
+  <script>
+    let url = "https://script.google.com/macros/s/AKfycbxz1FnXFVHxtsoVKHHDUXIhs75tYyt_yW30HjFDrModfCHYOKdlJ1aSZBFOFxj6hQpk/exec";
+    let file = document.querySelector("input");
+    let img = document.querySelector("img");
+    file.addEventListener('change', () => {
+      let fr = new FileReader();
+      fr.addEventListener('loadend', () => {
+        let res = fr.result;
+        img.src = res;
+        let spt = res.split("base64,")[1];
+        // console.log(spt);
+        let obj = {
+          base64:spt,
+          type:file.files[0].type,
+          name:file.files[0].name
+        }
+        fetch(url, {
+          method:"POST",
+          body:JSON.stringify(obj)
+        })
+          .then(r=>r.text())
+          .then(data=>console.log(data))
+
+      })
+      fr.readAsDataURL(file.files[0])
+
+    })
+  </script>
+</body>
+
+</html>
