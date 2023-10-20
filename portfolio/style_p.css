@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    /* border: 2px solid red; */
     font-family: 'Poppins',sans-serif;
     box-sizing: border-box;
 }
@@ -349,13 +350,17 @@ form input, form textarea{
 
 nav .fas{
     display: none;
+    /* border: 5px solid rgb(106, 101, 101); */
+
 }
 
 /* -------------------------css for small screens ------------------------- */
 @media only screen  and (max-width: 600px) {
     #header{
-        background-image: url(img/phone-background.png);
+       background-image: url(img/background_img-small.png);
+       /* margin: 0px; */
     }
+
     .header-text{
         margin-top: 100%;
         font-size:10px ;
@@ -364,12 +369,15 @@ nav .fas{
         font-size: 30px;
 
     }
+    
     nav .fas{
         display: block;
-        font-size: 25px;
+        font-size: 20px;
+        /* border: 15px solid rgb(228, 223, 223); */
+        cursor: pointer;
     }
     nav ul{
-        background: #ff004f;
+        background: rgb(222, 2, 2);
         position: fixed;
         top: 0;
         right: -200px;
@@ -388,6 +396,7 @@ nav .fas{
         top: 25px;
         left: 25px;
         cursor: pointer;
+        color: #f1eaec;
     }
 
     .sub-title{
@@ -419,8 +428,8 @@ nav .fas{
         font-size: 14px;
     }
 }
-#msg{
+/* #msg{
     color: #61b752;
     margin-top: -40px;
     display: block;
-}
+} */
